@@ -265,6 +265,6 @@ These need *your* specifics and can't be pre-written:
 
 - [ ] 60–90 second introduction, ending on a hook toward your strongest system
 - [ ] Exact data scale per project (rows, features, refresh cadence) and what scale forced you to change
-- [ ] The real measurement methodology behind each resume number (35%, 90%, 10M+, 79%, 2.7%)
+- [ ] The real measurement methodology behind every impact number on your CV — what the baseline/counterfactual was, and what confound could explain it away
 - [ ] Which evaluation metrics you actually used per project, and why that metric
 - [ ] One story for the "client wants to drop a high-importance feature" pattern — a time you pushed back, or conceded, on a data decision
