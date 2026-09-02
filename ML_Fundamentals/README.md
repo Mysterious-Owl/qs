@@ -1,0 +1,33 @@
+# ML Fundamentals
+
+Reference material for the technical-depth rounds — theory, math, and hands-on code. Cross-linked with the [`../Example_Company/`](../Example_Company/) prep track where relevant.
+
+| File | What's in it |
+|---|---|
+| [ML_Algorithms_Cheatsheet.md](ML_Algorithms_Cheatsheet.md) | **31 classical ML algorithms.** Per algorithm: what it does, core equation, key theory, how it differs from neighbors, hyperparameters, preconditions/assumptions, preprocessing needs, evaluation & output checks, when to choose, what it works best with, key terms, and the common gotcha. Grouped: regression → classification → tree ensembles → clustering → dimensionality reduction → other (Apriori, ARIMA). Ends with a "which algorithm when" lookup table. |
+| [DL_Concepts_Cheatsheet.md](DL_Concepts_Cheatsheet.md) | **Deep learning concepts + architectures.** Part 1 covers fundamentals (backprop, optimizers, activations, losses, vanishing gradients, initialization, normalization, regularization, LR scheduling, transfer learning). Part 2 covers architectures (MLP, CNN, ResNet, RNN, LSTM, GRU, seq2seq, autoencoder, VAE, GAN, diffusion, GNN, ViT, CLIP). |
+| [Transformers_Cheatsheet.md](Transformers_Cheatsheet.md) | **Transformers in depth** — the attention equation and every "why" behind it, the full block anatomy, positional encoding variants (incl. RoPE), model families (encoder/decoder/enc-dec), training stages (pretraining → SFT → RLHF/DPO/GRPO), PEFT/LoRA, decoding strategies, KV cache, serving optimizations, long-context issues, and a rapid-fire Q&A section. |
+| [XGBoost_Trees_Deep_Dive.md](XGBoost_Trees_Deep_Dive.md) | **14 deep answers on boosting and trees** — the gain formula and why second-order, every hyperparameter's physical effect, `predict` vs `predict_proba`, where the classification threshold actually lives (nowhere in XGBoost), when XGBoost fails and what beats it, bagging vs boosting, systematic tuning order, learning-rate effects, overfitting remedies, native missing-value handling, what regularization really does, regularization beyond L1/L2, DT flaws RF fixes, and regressor splitting criteria. |
+| [CatBoost_Deep_Dive.md](CatBoost_Deep_Dive.md) | **CatBoost at mechanism level.** Ordered target statistics (the leakage-safe categorical encoding, with the formula), ordered boosting and the prediction-shift problem it fixes, oblivious/symmetric trees and why inference is so fast, automatic feature combinations, the full hyperparameter map, text/embedding features, `nan_mode`, a three-way CatBoost/XGBoost/LightGBM decision table, when it's the wrong choice, and 8 common pitfalls. |
+| [Feature_Engineering_Selection.md](Feature_Engineering_Selection.md) | **The pre-modelling half.** Data leakage (7 types + prevention checklist), feature selection (filter / wrapper / embedded, with trade-offs), high-cardinality categoricals (encoding table + four grouping strategy families), feature engineering patterns, and the tall-narrow vs short-wide (`n ≫ p` vs `p ≫ n`) comparison. |
+| [GenAI_Cheatsheet.md](GenAI_Cheatsheet.md) | **Applied GenAI.** Tokenization, SLM vs LLM, inference parameters (incl. frequency vs presence penalty), prompt engineering + injection, embeddings/vector DBs/ANN indexes, **RAG with ~20 named variants** and its failure modes, LLM evaluation (RAGAS quadrant, LLM-as-judge biases), fine-tuning decision framework, agentic AI patterns and failure modes, and a model-selection framework. |
+| [Plots_Visual_Diagnostics.md](Plots_Visual_Diagnostics.md) | **16 generated figures with how-to-read guidance.** Skewness and mean/median/mode ordering, log transforms, box-plot anatomy and the 1.5×IQR rule, the four QQ-plot signatures, bias-variance decomposition, learning curves, accuracy-vs-precision bullseyes, confusion matrix, ROC vs PR under imbalance, threshold selection, calibration curves, gains/lift, KS, residual diagnostics, correlation traps (incl. Simpson's paradox), elbow vs silhouette. Ends with a "which plot answers this question?" lookup. |
+| [Glossary.md](Glossary.md) | **~200 terms** across statistics, features, training, evaluation, algorithms, DL, GenAI and MLOps — plus a **commonly-confused-pairs** table (precision vs recall vs specificity, Gini impurity vs Gini coefficient, data vs concept drift, RAG vs fine-tuning, and so on). |
+| [figures/generate_figures.py](figures/generate_figures.py) | Regenerates all 16 SVGs used above. Transparent backgrounds, so they render in both light and dark themes. |
+| [ML_Training_Notebook.ipynb](ML_Training_Notebook.ipynb) | **Runnable practice notebook** — trains and evaluates Linear Regression, Logistic Regression, K-Means, and XGBoost end to end, with the diagnostic checks that matter (residual plots, ROC curve, elbow + silhouette for choosing k, early stopping, feature importance). |
+
+## Suggested order
+
+1. **`XGBoost_Trees_Deep_Dive.md`** first — in the real asked-question rounds ([`../Question_Bank/`](../Question_Bank/)) this single topic was 9 of 27 questions. Highest question-density per page in the repo.
+1a. **`CatBoost_Deep_Dive.md`** if the role touches high-cardinality categoricals (merchant, SKU, ZIP, diagnosis codes) — it reads as the sequel to the XGBoost file.
+1b. **`Plots_Visual_Diagnostics.md`** alongside it — reading a plot out loud is a common whiteboard task, and the metric plots (§7-13) overlap heavily with the imbalance / precision-recall / top-1%-ranking questions. Keep **`Glossary.md`** open as a lookup while you work through everything else.
+2. `Feature_Engineering_Selection.md` — leakage and high-cardinality handling came up directly, and this is where most real model quality lives anyway.
+3. Skim `ML_Algorithms_Cheatsheet.md` for breadth, then drill the algorithms you're rusty on.
+4. Run `ML_Training_Notebook.ipynb` top to bottom — the muscle memory of `fit`/`predict`/evaluate matters in a live coding round.
+5. `GenAI_Cheatsheet.md` — applied GenAI, and the doc to read before any RAG/LLM/agents conversation.
+6. `DL_Concepts_Cheatsheet.md` for the DL architecture round.
+7. `Transformers_Cheatsheet.md` last and hardest — given the Catalog team's GenAI focus, this is the highest-leverage depth to have.
+
+## Note on emphasis
+
+The Example Company Catalog role leans MLE/GenAI, so `Transformers_Cheatsheet.md` and the LoRA/serving sections carry more weight than, say, ARIMA. But the classical ML fundamentals in `ML_Algorithms_Cheatsheet.md` are the **highest-confidence** thing in the whole prep set — those are corroborated as near-certain to be asked ([`../Example_Company/09_Classical_ML_Statistics.md`](../Example_Company/09_Classical_ML_Statistics.md)). Don't skip them for the shinier material.
