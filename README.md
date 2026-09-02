@@ -105,7 +105,11 @@ Transparent backgrounds and a mid-grey ink that clears contrast requirements on 
 
 [`.github/workflows/pages.yml`](.github/workflows/pages.yml) builds and deploys on every push to `main`, so **there is no output folder to commit or point at**. The build output is gitignored; the workflow regenerates it in CI.
 
-One-time setup: **Settings → Pages → Source: _GitHub Actions_**. (The workflow's `configure-pages` step tries to enable this itself on first run, so it may already be done.) The site then lives at `https://<user>.github.io/<repo>/`.
+**One-time setup, required before the first deploy can succeed:** **Settings → Pages → Source: _GitHub Actions_**.
+
+This step cannot be automated. Creating a Pages site through the API needs permissions the default `GITHUB_TOKEN` doesn't carry, so a workflow that tries it fails with `Resource not accessible by integration`. Enable it in the UI once, then re-run the workflow (**Actions → the run → Re-run all jobs**) or push again.
+
+The site then lives at `https://<user>.github.io/<repo>/`.
 
 Every URL the builder writes is relative, so the site works at a domain root and under a project subpath equally.
 
