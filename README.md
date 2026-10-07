@@ -1,8 +1,8 @@
 # Interview Prep
 
-Notes for Data Science / ML Engineer interviews — a company-specific prep track, ML/GenAI reference material, a bank of real asked questions, and a broader role-based question set.
+Notes for Data Science / ML Engineer interviews — ML/GenAI reference material, a bank of real asked questions, role-based question sets, and two company-specific tracks.
 
-Company names, contacts and personal details have been genericized; the target company appears throughout as **Example Company**.
+**On sourcing:** the [`Google/`](Google/README.md) track is built from a public write-up and is cited as such. The [`Example_Company/`](Example_Company/README.md) track came from a private referral, so its company name, contacts and personal details are genericized. Both carry per-claim confidence tags — check them before trusting any single detail.
 
 ---
 
@@ -23,6 +23,17 @@ Company names, contacts and personal details have been genericized; the target c
 | [Glossary](ML_Fundamentals/Glossary.md) | ~200 terms, plus a commonly-confused-pairs table |
 | [ML_Training_Notebook](ML_Fundamentals/ML_Training_Notebook.ipynb) | Runnable: linear/logistic regression, K-Means, XGBoost with real diagnostics |
 
+### 📂 [`NLP/`](NLP/README.md) — natural language processing
+
+The pre-transformer foundations the rest of the repo was missing, plus three **runnable offline
+notebooks**. Concepts: preprocessing, BoW/TF-IDF, PPMI and LSA, the word2vec/GloVe/fastText
+objectives written out, BIO tagging and CRFs, and the full metric table (BLEU vs ROUGE,
+perplexity, entity F1).
+
+The notebooks implement the mechanics rather than calling a library — co-occurrence → PPMI →
+SVD *and* skip-gram with negative sampling, both in numpy; NER with span decoding and
+entity-level F1 from scratch. All run in under a minute with no downloads.
+
 ### 📂 [`Question_Bank/`](Question_Bank/README.md) — questions actually asked
 
 [27 questions from two real DS/ML rounds](Question_Bank/README.md), verbatim and in order, each linked to its answer or answered inline. Heavily XGBoost, imbalance and credit-risk flavoured. The folder README maps every topic to where it's covered and lists the gaps only you can fill.
@@ -38,6 +49,14 @@ Eight Q&A documents per role, from a public reference set — useful for breadth
 | `Data_Scientist/` | Analysis, experimentation, business impact | [Experimentation](Data_Scientist/Q1_Experimentation.md) |
 | `AI_Researcher/` | Novel methods, theoretical foundations | [Evaluation Methodology](AI_Researcher/Q1_Evaluation_Methodology.md) |
 | `AI_Architect/` | System design, multi-agent, infrastructure | [Multi-Agent Consistency](AI_Architect/Q1_Multi_Agent_Consistency.md) |
+
+### 📂 [`Google/`](Google/README.md) — Google L5 ML
+
+Built from [one public write-up](https://www.reddit.com/r/LeetcodeDesi/comments/1wbp9wh/cleared_google_l5/) by a candidate with 8+ years' experience who went through the **L5 Machine Learning** loop: recruiter screen, three coding rounds, two ML rounds (fundamentals + system design), Googleyness, then team matching.
+
+Read the [track README's caveats first](Google/README.md#read-the-source-honestly) — it's a single self-reported account, the outcome was still pending when it was written, the post was LLM-drafted, and a commenter disputed the loop shape. Every file separates what the post actually said (📄) from framing added here (🧩), and **the post contains no verbatim interview questions** — it's a preparation checklist, so nothing here is presented as a question Google asked.
+
+The highest-value file is [07_Interview_Strategy.md](Google/07_Interview_Strategy.md) on the *follow-up ladder*: every answer gets pushed three or four levels deeper, and it's the reasoning that's scored, not the first answer.
 
 ### 📂 [`Example_Company/`](Example_Company/README.md) — the company-specific track
 
@@ -55,7 +74,10 @@ Fed by two sources: topic and format tips from a contact who interviewed on the 
 2. **[`Feature_Engineering_Selection`](ML_Fundamentals/Feature_Engineering_Selection.md)** and **[`Plots_Visual_Diagnostics`](ML_Fundamentals/Plots_Visual_Diagnostics.md)** — leakage, high-cardinality handling, and reading a plot out loud all came up directly.
 3. Run the **[notebook](ML_Fundamentals/ML_Training_Notebook.ipynb)** — muscle memory for a live coding round.
 4. **[`GenAI_Cheatsheet`](ML_Fundamentals/GenAI_Cheatsheet.md)** before any RAG/LLM/agents conversation, then **[`Transformers_Cheatsheet`](ML_Fundamentals/Transformers_Cheatsheet.md)** for depth.
-5. **[`Example_Company/README.md`](Example_Company/README.md)** if you're prepping that specific loop — its confidence tags tell you where to spend time.
+5. **[`NLP/`](NLP/README.md)** if the role is language-facing — the notebooks are the fastest way to make embeddings and BIO tagging concrete.
+6. **A company track**, if one applies — [`Google/`](Google/README.md) for an L5 ML loop, [`Example_Company/`](Example_Company/README.md) for a catalog/DS loop. Both use confidence tags to show where to spend time.
+
+If you read one page in the whole repo for *how to interview* rather than *what to know*, make it [`Google/07_Interview_Strategy.md`](Google/07_Interview_Strategy.md).
 
 Keep [`Glossary.md`](ML_Fundamentals/Glossary.md) open as a lookup throughout.
 

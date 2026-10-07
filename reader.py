@@ -55,6 +55,7 @@ TEXT_TYPES = {".py", ".txt", ".json", ".csv", ".yml", ".yaml", ".toml", ".sql"}
 FOLDER_ORDER = [
     "",                  # root README -> "Home"
     "ML_Fundamentals",
+    "NLP",
     "Question_Bank",
     "AI_Engineer",
     "ML_Engineer",
@@ -62,7 +63,7 @@ FOLDER_ORDER = [
     "AI_Researcher",
     "AI_Architect",
 ]
-FOLDER_LAST = ["Example_Company"]
+FOLDER_LAST = ["Google", "Example_Company"]
 
 
 def folder_rank(folder: str) -> tuple:
